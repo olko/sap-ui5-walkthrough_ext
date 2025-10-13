@@ -1,8 +1,15 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="sap.ui.demo.walkthrough.controller.App" displayBlock="true">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+  controllerName="sap.ui.demo.walkthrough.controller.App" displayBlock="true">
   <Shell>
     <App class="myAppDemoWT">
       <pages>
         <Page title="{i18n>homePageTitle}">
+          <headerContent>
+            <Button id="showDialogButton" text="{i18n>helloDialogButtonText}"
+              class="sapUiSmallMarginEnd"
+              icon="sap-icon://world"
+              press=".onOpenDialog" />
+          </headerContent>
           <content>
             <mvc:XMLView
               viewName="sap.ui.demo.walkthrough.view.HelloPanel" />
