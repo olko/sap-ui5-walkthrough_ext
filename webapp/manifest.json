@@ -1,117 +1,117 @@
 {
-	"_version": "1.1.0",
-	"start_url": "<startUrl>",
-	"sap.app": {
-		"_version": "1.1.0",
-		"id": "sap.ui.demo.walkthrough",
-		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"tags": {
-			"keywords": [
-				"{{<keyword1>}}",
-				"{{<keyword2>}}"
-			]
-		},
-		"dataSources": {
-			"<dataSourceAlias>": {
-				"uri": "<uri>",
-				"settings": {
-					"localUri": "<localUri>"
-				}
-			}
-		}
-	},
-	"sap.ui": {
-		"_version": "1.1.0",
-		"icons": {
-			"icon": "<icon>",
-			"favIcon": "<favIcon>",
-			"phone": "<phone>",
-			"phone@2": "<phone@2>",
-			"tablet": "<tablet>",
-			"tablet@2": "<tablet@2>"
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
-	},
-	"sap.ui5": {
-		"_version": "1.1.0",
-		"resources": {
-			"js": [
-				{
-					"uri": "<uri>"
-				}
-			],
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
-		},
-		"dependencies": {
-			"minUI5Version": "1.60",
-			"libs": {
-				"sap.m": {}
-			}
-		},
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
-					"suppoertedLocales": [
-						""
-					],
-					"fallbackLocale": ""
-				},
-				"uri": "<uriRelativeToManifest>"
-			},
-			"invoice": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "Invoices.json"
-			},
-			"": {
-				"dataSource": "<dataSourceAlias>",
-				"settings": {}
-			}
-		},
-		"rootView": {
-			"viewName": "sap.ui.demo.walkthrough.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
-		},
-		"handleValidation": false,
-		"config": {},
-		"routing": {},
-		"extends": {
-			"component": "<extendedComponentId>",
-			"minVersion": "<minComp1Version>",
-			"extensions": {}
-		},
-		"contentDensities": {
-			"compact": false,
-			"cozy": false
-		}
-	},
-	"sap.platform.abap": {
-		"_version": "1.1.0",
-		"uri": "<uri>"
-	},
-	"sap.platform.hcp": {
-		"_version": "1.1.0",
-		"uri": "<uri>"
-	}
+  "_version": "1.1.0",
+  "start_url": "<startUrl>",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "sap.ui.demo.walkthrough",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "tags": {
+      "keywords": [
+        "{{<keyword1>}}",
+        "{{<keyword2>}}"
+      ]
+    },
+    "dataSources": {
+      "invoiceRemote": {
+        "uri": "https://services.odata.org/v2/northwind/northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "icons": {
+      "icon": "<icon>",
+      "favIcon": "<favIcon>",
+      "phone": "<phone>",
+      "phone@2": "<phone@2>",
+      "tablet": "<tablet>",
+      "tablet@2": "<tablet@2>"
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_bluecrystal"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "resources": {
+      "js": [
+        {
+          "uri": "<uri>"
+        }
+      ],
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "dependencies": {
+      "minUI5Version": "1.60",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
+          "suppoertedLocales": [
+            ""
+          ],
+          "fallbackLocale": ""
+        },
+        "uri": "<uriRelativeToManifest>"
+      },
+      "invoiceRemote": {
+        "dataSource": "invoiceRemote"
+      },
+      "": {
+        "dataSource": "<dataSourceAlias>",
+        "settings": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.ui.demo.walkthrough.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "handleValidation": false,
+    "config": {},
+    "routing": {},
+    "extends": {
+      "component": "<extendedComponentId>",
+      "minVersion": "<minComp1Version>",
+      "extensions": {}
+    },
+    "contentDensities": {
+      "compact": false,
+      "cozy": false
+    }
+  },
+  "sap.platform.abap": {
+    "_version": "1.1.0",
+    "uri": "<uri>"
+  },
+  "sap.platform.hcp": {
+    "_version": "1.1.0",
+    "uri": "<uri>"
+  }
 }
