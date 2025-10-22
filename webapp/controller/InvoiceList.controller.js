@@ -14,6 +14,10 @@ sap.ui.define([
           currency: "EUR",
         });
       this.getView().setModel(oViewModel, "view");
+      var oList = this.byId("invoiceList");
+      var oBnd = oList && oList.getBinding("items");
+
+      console.log("Binding:\n", oList, oBnd && oBnd.getPath(), oBnd && !!oBnd.getModel());
     },
     onFilterInvoices: function(oEvent) {
       var aFilter = [];

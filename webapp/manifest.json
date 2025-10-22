@@ -1,6 +1,6 @@
 {
   "_version": "1.1.0",
-  "start_url": "<startUrl>",
+  "start_url": "http://localhost:8080/",
   "sap.app": {
     "_version": "1.1.0",
     "id": "sap.ui.demo.walkthrough",
@@ -11,15 +11,9 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-    "tags": {
-      "keywords": [
-        "{{<keyword1>}}",
-        "{{<keyword2>}}"
-      ]
-    },
     "dataSources": {
       "invoiceRemote": {
-        "uri": "https://services.odata.org/v2/northwind/northwind.svc/",
+        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
@@ -79,11 +73,11 @@
         },
         "uri": "<uriRelativeToManifest>"
       },
-      "invoiceRemote": {
+      "invoice": {
         "dataSource": "invoiceRemote"
       },
       "": {
-        "dataSource": "<dataSourceAlias>",
+        "type": "sap.ui.model.json.JSONModel",
         "settings": {}
       }
     },
@@ -97,8 +91,6 @@
     "config": {},
     "routing": {},
     "extends": {
-      "component": "<extendedComponentId>",
-      "minVersion": "<minComp1Version>",
       "extensions": {}
     },
     "contentDensities": {
