@@ -3,6 +3,14 @@
   controllerName="sap.ui.demo.walkthrough.controller.HelloPanel">
   <Panel headerText="{i18n>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
     <content>
+      <Button
+        id="helloDialogButton"
+        icon="sap-icon://world"
+        text="{i18n>openDialogButtonText}"
+        press=".onOpenDialog"
+        class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
+        accessibleRole="Region" />
+      <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="myCustomButton" />
       <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="myCustomButton" />
       <Input value="{/recipient/name}" description="Hello {/recipient/name }" valueLiveUpdate="true"
         width="60%" />
