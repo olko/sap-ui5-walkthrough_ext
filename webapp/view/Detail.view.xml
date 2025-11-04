@@ -1,6 +1,7 @@
 <mvc:View
   controllerName="sap.ui.demo.walkthrough.controller.Detail"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns:wt="sap.ui.demo.walkthrough.control"
 >

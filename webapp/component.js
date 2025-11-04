@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/resource/ResourceModel",
-	"./controller/HelloDialog"
-], function(UIComponent, JSONModel, ResourceModel, HelloDialog) {
+	"./controller/HelloDialog",
+	"sap/ui/Device"
+], function(UIComponent, JSONModel, ResourceModel, HelloDialog, Device) {
 	"use strict";
 	return UIComponent.extend("sap.ui.demo.walkthrough.component", {
 		metadata: {
@@ -13,6 +14,11 @@ sap.ui.define([
 			console.log("Initializing component...");
 			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);
+			// set device model
+			const oDeviceModel = new JSONModel(Device);
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			this.setModel(oDeviceModel, "device")
+				;
 			const oInvoiceModel = new sap.ui.model.odata.v2.ODataModel(
 				"https://services.odata.org/V2/Northwind/Northwind.svc/"
 			);

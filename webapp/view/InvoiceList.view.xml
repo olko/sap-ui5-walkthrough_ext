@@ -2,7 +2,7 @@
   controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-  <List
+  <Table
     id="invoiceList"
     headerText="{i18n>ListHeaderText}"
     class="sapUiResponsiveMargin"
@@ -18,7 +18,63 @@
         <SearchField width="50%" search=".onFilterInvoices" />
       </Toolbar>
     </headerToolbar>
+    <columns>
+      <Column
+        hAlign="End"
+        minScreenWidth="Small"
+        demandPopin="true"
+        width="4em"
+      >
+        <Text text="{i18n>columnQuantity}" />
+      </Column>
+      <Column>
+        <Text text="{i18n>columnName}" />
+      </Column>
+      <Column
+        minScreenWidth="Small"
+        demandPopin="true"
+      >
+        <Text text="{i18n>columnStatus}" />
+      </Column>
+      <Column
+        minScreenWidth="Tablet"
+        demandPopin="false"
+      >
+        <Text text="{i18n>columnSeller}" />
+      </Column>
+      <Column
+        hAlign="End"
+      >
+        <Text text="{i18n>columnPrice}" />
+      </Column>
+    </columns>
     <items>
+      <ColumnListItem
+        type="Navigation"
+        press=".onPress"
+      >
+        <cells>
+          <ObjectNumber number="{invoice>Quantity}" emphasized="true" />
+          <ObjectIdentifier title="{invoice>ProductName}" />
+          <Text
+            text="{
+                 path: 'invoice>Status',
+                 formatter: '.formatter.statusText'
+                 }" />
+          <Text text="{invoice>ShipperName}" />
+          <ObjectNumber
+            number="{
+              parts: [{ path: 'invoice>ExtendedPrice' }, { path: 'view>currency'}],
+              type: 'sap.ui.core.model.Currency',
+              formatOptions: {
+                showMeasure: false
+              } 
+            }"
+            unit="{view>currency}"
+            state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}" />
+        </cells>
+      </ColumnListItem>
+      <!--
       <ObjectListItem
         title="{invoice>Quantity} x {invoice>ProductName}"
         number="{ parts: [
@@ -41,6 +97,7 @@
             }" />
         </firstStatus>
       </ObjectListItem>
+//-->
     </items>
-  </List>
+  </Table>
 </mvc:View>
