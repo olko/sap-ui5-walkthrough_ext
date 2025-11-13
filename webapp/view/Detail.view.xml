@@ -1,18 +1,40 @@
 <mvc:View
-  controllerName="sap.ui.demo.walkthrough.controller.Detail"
-  xmlns="sap.m"
-  xmlns:core="sap.ui.core"
-  xmlns:mvc="sap.ui.core.mvc"
-  xmlns:wt="sap.ui.demo.walkthrough.control"
+	controllerName="sap.ui.demo.walkthrough.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:wt="sap.ui.demo.walkthrough.control"
 >
-  <Page title="{i18n>detailPageTitle}"
-    showNavButton="true"
-    navButtonPress=".onNavBack">
-    <ObjectHeader
-      intro="{invoice>ShipperName}"
-      title="{invoice>ProductName}"
-    />
-    <wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange" />
-  </Page>
+	<Page
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		<ObjectHeader
+			responsive="true"
+			fullScreenOptimized="true"
+			number="{
+                          parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+                          type: 'sap.ui.model.type.Currency',
+                          formatOptions: {
+                               showMeasure: false
+                          }
+                         }"
+			numberUnit="{view>/currency}"
+			intro="{invoice>ShipperName}"
+			title="{invoice>ProductName}"
+		>
+			<attributes>
+				<ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}" />
+				<ObjectAttribute
+					title="{i18n>dateTitle}"
+					text="{
+                                          path: 'invoice>ShippedDate',
+                                          type: 'sap.ui.model.type.DateTime',
+                                          source: { pattern: 'yyyy-MM-dd\'T\'HH:mm:ss' },
+                                          formatOptions: { style: 'long' }
+                                        }" />
+			</attributes>
+		</ObjectHeader>
+		<wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange" />
+	</Page>
 
 </mvc:View>
