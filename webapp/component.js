@@ -6,16 +6,17 @@ sap.ui.define([
   "sap/ui/Device"
 ], function(UIComponent, JSONModel, ResourceModel, HelloDialog, Device) {
   "use strict";
+
   return UIComponent.extend("sap.ui.demo.walkthrough.component", {
     metadata: {
       manifest: "json"
     },
+
     init: function() {
       console.log("Initializing component...");
-      // call the init function of the parent
+
       UIComponent.prototype.init.apply(this, arguments);
 
-      // set device model
       const oDeviceModel = new JSONModel(Device);
       oDeviceModel.setDefaultBindingMode("OneWay");
       this.setModel(oDeviceModel, "device");
@@ -24,7 +25,7 @@ sap.ui.define([
         "https://services.odata.org/V2/Northwind/Northwind.svc/"
       );
       this.setModel(oInvoiceModel, "invoice");
-      // set data models
+
       var oData = {
         recipient: {
           name: "UI5"
@@ -32,12 +33,24 @@ sap.ui.define([
       };
       var oModel = new JSONModel(oData);
       this.setModel(oModel);
-      // set dialog
+
       let oRootControl = this.getRootControl();
       console.log(`Creating HelloDialog with view ${oRootControl}`);
       this._helloDialog = new HelloDialog(oRootControl);
+
       this.getRouter().initialize();
     },
+
+    getContentDensityClass: function() {
+      var _sContentDensityClass;
+      if (!_sContentDensityClass) {
+        _sContentDensityClass = Device.support.touch
+          ? "sapUiSizeCozy"
+          : "sapUiSizeCompact";
+      }
+      return _sContentDensityClass;
+    },
+
     openHelloDialog: function() {
       console.log("component opens dialog");
       this._helloDialog.open();

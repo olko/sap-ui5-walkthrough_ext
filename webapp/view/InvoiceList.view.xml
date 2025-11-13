@@ -65,7 +65,7 @@
           <ObjectNumber
             number="{
               parts: [{ path: 'invoice>ExtendedPrice' }, { path: 'view>currency'}],
-              type: 'sap.ui.core.model.Currency',
+              type: 'sap.ui.model.type.Currency',
               formatOptions: {
                 showMeasure: false
               } 
