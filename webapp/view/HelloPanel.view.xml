@@ -14,7 +14,7 @@
         text="{i18n>openDialogButtonText}"
         press=".onOpenDialog"
         class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
-        accessibleRole="Region" />
+        accessibleRole="Default" />
       <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="myCustomButton" />
       <Input value="{/recipient/name}" description="Hello {/recipient/name }" valueLiveUpdate="true"
         width="60%" />

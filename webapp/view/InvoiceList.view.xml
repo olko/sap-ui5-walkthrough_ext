@@ -11,13 +11,15 @@
      path: 'invoice>/Invoices',
      sorter: {path: 'ShipperName', group: true}
      }">
-    <headerToolbar>
-      <Toolbar>
-        <Title text="{i18n>ListHeaderText}" />
-        <ToolbarSpacer />
-        <SearchField width="50%" search=".onFilterInvoices" />
-      </Toolbar>
-    </headerToolbar>
+    <Panel>
+      <headerToolbar>
+        <Toolbar>
+          <Title text="{i18n>ListHeaderText}" />
+          <ToolbarSpacer />
+          <SearchField width="50%" search=".onFilterInvoices" />
+        </Toolbar>
+      </headerToolbar>
+    </Panel>
     <columns>
       <Column
         hAlign="End"
